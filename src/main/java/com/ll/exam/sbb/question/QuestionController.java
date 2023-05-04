@@ -7,8 +7,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class QuestionController {
     @GetMapping("/question/list")
-    @ResponseBody
     public String list() {
-        return "question list 페이지 입니다";
+        return "question_list";
     }
 }
