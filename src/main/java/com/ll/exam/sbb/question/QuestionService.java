@@ -4,6 +4,7 @@ import com.ll.exam.sbb.DataNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.security.auth.Subject;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -28,10 +29,11 @@ public class QuestionService {
     }
 
     public void create(String subject, String content) {
-        Question question = new Question();
-        question.setSubject(subject);
-        question.setContent(content);
-        question.setCreateDate(LocalDateTime.now());
-        this.questionRepository.save(question);
+        Question q = new Question();
+        q.setSubject(subject);
+        q.setContent(content);
+        q.setCreateDate(LocalDateTime.now());
+        this.questionRepository.save(q);
     }
+
 }
