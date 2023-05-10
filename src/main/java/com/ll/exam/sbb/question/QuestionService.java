@@ -2,6 +2,9 @@ package com.ll.exam.sbb.question;
 
 import com.ll.exam.sbb.DataNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.security.auth.Subject;
@@ -36,4 +39,8 @@ public class QuestionService {
         this.questionRepository.save(q);
     }
 
+    public Page<Question> getList(int page) {
+        Pageable pageable = PageRequest.of(page, 10);
+        return this.questionRepository.findAll(pageable);
+    }
 }
